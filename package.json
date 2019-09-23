@@ -1,0 +1,21 @@
+{
+  "name": "wienerlinien-stops-indexeddb",
+  "version": "1.0.0",
+  "description": "Store Wienerlinien Stops in an IndexedDB and query geographically",
+  "module": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c"
+  },
+  "author": "tuwrraphael",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "rollup": "^1.21.4",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-sourcemaps": "^0.4.2",
+    "rollup-plugin-terser": "^5.1.2",
+    "rollup-plugin-typescript2": "^0.24.2",
+    "typescript": "^3.6.3"
+  }
+}
