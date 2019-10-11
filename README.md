@@ -2,6 +2,11 @@
 
 [Example](https://tuwrraphael.github.io/wienerlinien-stops-indexeddb/example/index.html) (you need a compatible browser or transpile)
 
+# Installing
+~~~
+npm install wienerlinien-stops-indexeddb
+~~~
+
 ## Data Source
 https://www.data.gv.at/katalog/dataset/wiener-linien-fahrplandaten-gtfs-wien
 
