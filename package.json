@@ -1,6 +1,6 @@
 {
   "name": "wienerlinien-stops-indexeddb",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Store Wienerlinien Stops in an IndexedDB and query geographically",
   "module": "dist/index.js",
   "scripts": {
