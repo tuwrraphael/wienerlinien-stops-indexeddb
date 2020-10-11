@@ -1,4 +1,4 @@
-import { StopStore, orderStopsByDistance } from "../dist/index.js";
+import { StopStore, orderStopsByDistance } from "https://unpkg.com/wienerlinien-stops-indexeddb@2.0.0/dist/index.js";
 var store = new StopStore("test");
 
 function writeResults(res, target) {

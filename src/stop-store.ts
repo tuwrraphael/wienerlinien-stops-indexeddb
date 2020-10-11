@@ -16,7 +16,7 @@ export class StopStore {
         await processStream(bodyAsTextStream, saveStops);
     }
 
-    query(lat, lng, r) {
+    query(lat:number, lng:number, r:number) {
         const [minLat, minLon, maxLat, maxLon] = boundingCoordinates(lat, lng, r / 1000);
         return new Promise<Stop[]>((resolve, reject) => {
             let lat_range = IDBKeyRange.bound(minLat, maxLat);
@@ -63,7 +63,7 @@ export class StopStore {
         });
     }
 
-    queryByName(name) {
+    queryByName(name:string) {
         return new Promise<Stop[]>((resolve, reject) => {
             this.openDb().then(db => {
                 let tx = db.transaction("Stops");

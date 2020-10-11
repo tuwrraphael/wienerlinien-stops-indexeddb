@@ -1,15 +1,17 @@
-import typescript from 'rollup-plugin-typescript2';
-import pkg from './package.json';
-import sourceMaps from 'rollup-plugin-sourcemaps';
+import typescript from "rollup-plugin-typescript2";
+import pkg from "./package.json";
+import sourceMaps from "rollup-plugin-sourcemaps";
 import { terser } from "rollup-plugin-terser";
+import del from "rollup-plugin-delete";
+
 export default {
-    input: 'src/index.ts', // our source file
+    input: "src/index.ts",
     output: [
 
         {
             file: pkg.module,
             sourcemap: true,
-            format: 'esm' // the preferred format
+            format: "esm"
         },
     ],
     external: [
@@ -17,9 +19,10 @@ export default {
     ],
     plugins: [
         typescript({
-            typescript: require('typescript'),
+            typescript: require("typescript"),
         }),
         sourceMaps(),
-        terser() // minifies generated bundles
+        terser(),
+        del({ targets: "dist/*" })
     ]
 };

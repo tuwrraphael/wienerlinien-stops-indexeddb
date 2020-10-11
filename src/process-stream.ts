@@ -1,6 +1,11 @@
 import { splitCsvLine } from "./split-csv-line";
 
-export function processStream(bodyAsTextStream: ReadableStream, saveStops) {
+export function processStream(bodyAsTextStream: ReadableStream, saveStops: (stops: {
+    stop_id: string,
+    stop_name: string,
+    stop_lat: number,
+    stop_lon: number
+}[]) => void) {
     return new Promise((resolve, reject) => {
         let accumulate = "";
         let header = false;
@@ -8,7 +13,12 @@ export function processStream(bodyAsTextStream: ReadableStream, saveStops) {
         let numProps = Object.keys(map).length;
         const appendStream = new WritableStream({
             write(chunk) {
-                let stops = [];
+                let stops: {
+                    stop_id: string,
+                    stop_name: string,
+                    stop_lat: number,
+                    stop_lon: number
+                }[] = [];
                 accumulate += chunk;
                 let incomplete = false;
                 let splitted = accumulate.replace(/\r/g, "").split("\n");
@@ -17,7 +27,7 @@ export function processStream(bodyAsTextStream: ReadableStream, saveStops) {
                     if (!header || accumulate.length < 2) {
                         for (let prop in map) {
                             if (map.hasOwnProperty(prop)) {
-                                map[prop] = stopSplitted.indexOf(prop);
+                                map[<keyof (typeof map)>prop] = stopSplitted.indexOf(prop);
                             }
                         }
                         header = true;

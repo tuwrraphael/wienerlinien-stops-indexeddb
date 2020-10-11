@@ -1,7 +1,7 @@
 import { Stop } from "./stop";
 import { haversine } from "./haversine";
 
-export function orderStopsByDistance(stops: Stop[], lat, lng) {
+export function orderStopsByDistance(stops: Stop[], lat:number, lng:number) {
     return stops
         .map(v => {
             return {
